@@ -43,9 +43,12 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
 
         // Initializing the droid speech and setting the listener
         droidSpeech = new DroidSpeech(this, getFragmentManager());
+        droidSpeech.setContinuousSpeechRecognition(true);
         droidSpeech.setOnDroidSpeechListener(this);
         droidSpeech.setShowRecognitionProgressView(true);
-        droidSpeech.setOneStepResultVerify(true);
+        //droidSpeech.setOneStepResultVerify(true);
+        droidSpeech.setOneStepResultVerify(false);
+
         droidSpeech.setRecognitionProgressMsgColor(Color.WHITE);
         droidSpeech.setOneStepVerifyConfirmTextColor(Color.WHITE);
         droidSpeech.setOneStepVerifyRetryTextColor(Color.WHITE);
@@ -114,32 +117,39 @@ public class Activity_DroidSpeech extends Activity implements OnClickListener, O
     // MARK: DroidSpeechListener Methods
 
     @Override
-    public void onDroidSpeechSupportedLanguages(String currentSpeechLanguage, List<String> supportedSpeechLanguages)
+    public void
+    onDroidSpeechSupportedLanguages(String currentSpeechLanguage, List<String> supportedSpeechLanguages)
     {
         Log.i(TAG, "Current speech language = " + currentSpeechLanguage);
         Log.i(TAG, "Supported speech languages = " + supportedSpeechLanguages.toString());
 
-        if(supportedSpeechLanguages.contains("ta-IN"))
+        //if(supportedSpeechLanguages.contains("ta-IN"))
+        if(supportedSpeechLanguages.contains("pt-BR"))
         {
             // Setting the droid speech preferred language as tamil if found
-            droidSpeech.setPreferredLanguage("ta-IN");
+            //droidSpeech.setPreferredLanguage("ta-IN");
+            droidSpeech.setPreferredLanguage("pt-BR");
 
             // Setting the confirm and retry text in tamil
-            droidSpeech.setOneStepVerifyConfirmText("உறுதிப்படுத்த");
-            droidSpeech.setOneStepVerifyRetryText("மீண்டும் முயற்சிக்க");
+            //droidSpeech.setOneStepVerifyConfirmText("உறுதிப்படுத்த");
+            //droidSpeech.setOneStepVerifyRetryText("மீண்டும் முயற்சிக்க");
+
+            droidSpeech.setOneStepVerifyConfirmText("olá");
+            droidSpeech.setOneStepVerifyRetryText("ignore");
         }
     }
 
     @Override
     public void onDroidSpeechRmsChanged(float rmsChangedValue)
     {
-        // Log.i(TAG, "Rms change value = " + rmsChangedValue);
+         Log.i(TAG, "Rms change value = " + rmsChangedValue);
     }
 
     @Override
     public void onDroidSpeechLiveResult(String liveSpeechResult)
     {
         Log.i(TAG, "Live speech result = " + liveSpeechResult);
+        //droidSpeech.startDroidSpeechRecognition();
     }
 
     @Override
