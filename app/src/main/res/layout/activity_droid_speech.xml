@@ -7,56 +7,86 @@
     android:orientation="vertical"
     android:background="#607D8B"
     android:alpha="0.8"
-    tools:context="com.vikramezhil.droidspeechexample.Activity_DroidSpeech">
+    tools:context="com.vikramezhil.speechrecog.Activity_DroidSpeech">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/final_speech_result"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"/>
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/finalSpeechResult"
-            android:layout_width="0dp"
+            <Button
+                android:id="@+id/button_start_service"
+                style="@android:style/Widget.Holo.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="start service" />
+
+            <Button
+                android:id="@+id/button_stop_service"
+                style="@android:style/Widget.Holo.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="stop service" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/final_speech_result"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/finalSpeechResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/no_data"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/start"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/no_data"
-            android:textColor="@android:color/white"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_start"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/btn_stop"
+            android:visibility="gone" />
+
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:scaleType="fitXY"
-        android:layout_gravity="center"
-        android:src="@drawable/btn_start"
-        android:contentDescription="@string/app_name"
-        android:visibility="visible"/>
-
-    <ImageView
-        android:id="@+id/stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:scaleType="fitXY"
-        android:layout_gravity="center"
-        android:src="@drawable/btn_stop"
-        android:contentDescription="@string/app_name"
-        android:visibility="gone"/>
 </LinearLayout>
